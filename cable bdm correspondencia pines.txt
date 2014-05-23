@@ -1,0 +1,13 @@
+teniendo el conector macho con los pines hacia abajo queda la muesca en la parte de abajo.
+El cable rojo del ya montado es el pin 1 que puede hacerse corresponder
+con el rojo del cable a hacer,
+
+El pin 2 es el siguiente al cable rojo del cable a hacer tirando hacia la izquierda y seria
+
+segun esta la foto el pin de arriba abajo
+
+Correspondencia pines
+
+cable rojo pin 1 el siguiente pin2 el siguiente pin 3 y así hasta el final
+
+Los impares cortarlos más cortitos que los otros para soldar
