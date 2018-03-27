@@ -1,0 +1,221 @@
+﻿//
+//
+// AVAILABLE DATA LABELS
+// -------------------------------------------------------------
+//
+//VEHICLE_SPEED_V1
+//VEHICLE_SPEED_V2
+//TRAVEL_DISTANCE_M_V1
+//
+//ENGINE_SPEED_V1
+//FUEL_CONSUMPTION_LPH_V1
+//ENGINE_TEMP_V1
+//
+//BAT_VOLT_V1
+//FUEL_LEVEL_V1
+//RAIN_SENSOR_V1
+//
+//EXTERNAL_TEMP_V1
+//
+//EXTERNAL_TEMP_V2
+//
+//EXTERNAL_TEMP_V3
+//BAT_VOLT_V2
+//FUEL_LEVEL_V2
+//
+//INSTANT_CONSUMPTION_TRIPAB
+//TOTAL_ODOMETER_TRIPAB
+//RANGE_TRIPAB
+//
+//AVERAGE_CONSUMPTION_TRIPA
+//AVERAGE_SPEED_TRIPA
+//TRAVEL_TIME_TRIPA
+//PARTIAL_ODOMETER_TRIPA
+//
+//AVERAGE_CONSUMPTION_TRIPB
+//AVERAGE_SPEED_TRIPB
+//TRAVEL_TIME_TRIPB
+//PARTIAL_ODOMETER_TRIPB
+//
+//TRAVEL_TIME_TRIP2
+//PARTIAL_ODOMETER_2_TRIP2
+//PARTIAL_ODOMETER_1_TRIP2
+//AVERAGE_SPEED_TRIP2
+//
+//INSTANT_CONSUMPTION_TRIP1
+//AVERAGE_CONSUMPTION_TRIP1
+//RANGE_TRIP1
+//AVERAGE_SPEED_TRIP1
+//TRAVEL_TIME_TRIP1
+//
+//TOTAL_ODOMETER_TRIP3
+//AVERAGE_CONSUMPTION_TRIP3
+
+
+
+//AVAILABLE SCREEN CONTROLS
+// -------------------------------------------------------------
+//
+//background-color - sets the background of the whole screen
+//text - displays a free text
+//value - displays a data value which will be obtained from the vehicle
+//box - just a color box
+//calcDt - calculated time between two values of a data parameter (can be used to calculate the time from 0-100km for example)
+//
+//format:
+//background-color;back-color
+//text;x;y;width;alignment;font-name;font-weight;font-size;font-color;back-color;message
+//value;x;y;width;alignment;font-name;font-weight;font-size;font-color;back-color;message;units
+//box;x;y;w;h;color
+//calcDt;x;y;width;alignment;font-name;font-weight;font-size;font-color;back-color;parameter;units;value-low;value-high
+//
+//where:
+//x - x position on screen (could be in % or pixels) 
+//y - y position on screen
+//width - width value
+//alignment - alignment of the text - could be L, R or C (i.e. left, right or center)
+//font-name - name of the forn to use
+//font-size - font size in points
+//font-weight - Regular, Bold, Italic or BoldItalic
+//font-color - color to use for the font
+//back-color - color to use for the background
+//parameter - see the list of AVAILABLE DATA LABELS above
+//message - any text message
+//units - any text to be used for the units
+//value-low and value-high - these two values are the lower and upper values for the calculation
+
+
+//
+//Here begins the first screen - Vehicle speed, Engine speed, etc.
+//
+
+//set screen background color
+background-color;FFFFFF
+
+//Draw Settings message
+text;5;96%;40%;L;Arial;Regular;10pt;008000;;Press F9 for settings or F8 to switch screens
+
+//Draw 0-20
+text;10;10%;18%;C;Arial;Bold;12pt;000080;FFFFD0;0-20 km/h
+calcDt;10;13%;18%;C;Arial;Bold;20pt;BB0000;FFFFD0;VEHICLE_SPEED_V1;s;0;20
+
+//Draw 0-60
+text;10;20%;18%;C;Arial;Bold;12pt;000080;FFFFD0;0-60 km/h
+calcDt;10;23%;18%;C;Arial;Bold;20pt;CC0000;FFFFD0;VEHICLE_SPEED_V1;s;0;60
+
+//Draw 0-100
+text;10;30%;18%;C;Arial;Bold;12pt;000080;FFFFD0;0-100 km/h
+calcDt;10;33%;18%;C;Arial;Bold;20pt;DD0000;FFFFD0;VEHICLE_SPEED_V1;s;0;100
+
+//Draw box under 0-xxx
+box;10;2%;18%;43%;FFFFD0
+
+//Draw line below vehicle speed
+box;10;47%;-20;4;000080
+
+//Draw vehicle speed 
+text;10%;5%;85%;R;Arial;Regular;14pt;000080;;Vehicle speed (km/h)
+value;10%;10%;85%;R;Arial;Bold;150pt;CC0000;;VEHICLE_SPEED_V1;
+
+//Draw Engine RPM
+text;34%;52%;32%;C;Arial;Bold;18pt;FFFFFF;000080;Engine RPM
+value;34%;65%;32%;C;Arial;Bold;90pt;FFFFFF;000080;ENGINE_SPEED_V1;
+
+//Draw box under Engine RPM
+box;30%;50%;40%;40%;000080
+
+//Draw Engine Temperature
+text;70%;50%;25%;C;Arial;Bold;14pt;000080;;Engine temperature
+value;70%;55%;25%;C;Arial;Bold;24pt;CC0000;;ENGINE_TEMP_V1;°C
+
+//Draw Fuel level
+text;70%;65%;25%;C;Arial;Bold;14pt;000080;;Fuel level
+value;70%;70%;25%;C;Arial;Bold;24pt;CC0000;;FUEL_LEVEL_V1;%
+
+//Draw Fuel Consumption in l/h
+text;70%;80%;25%;C;Arial;Bold;14pt;000080;;Consumption (l/h)
+value;70%;85%;25%;C;Arial;Bold;24pt;CC0000;;FUEL_CONSUMPTION_LPH_V1;l/h
+
+//Draw Outside temperature
+text;5%;50%;25%;C;Arial;Bold;14pt;000080;;Outside temperature
+value;5%;55%;25%;C;Arial;Bold;24pt;CC0000;;EXTERNAL_TEMP_V1;°C
+
+//Draw Battery voltage
+text;5%;65%;25%;C;Arial;Bold;14pt;000080;;Battery
+value;5%;70%;25%;C;Arial;Bold;24pt;CC0000;;BAT_VOLT_V1;V
+
+//Draw Partial odometer
+text;5%;80%;25%;C;Arial;Bold;14pt;000080;;Partial odometer
+value;5%;85%;25%;C;Arial;Bold;24pt;CC0000;;TRAVEL_DISTANCE_M_V1;m
+
+
+
+
+//Screen separator (next line tells the program that a new screen begins) (it is possible to add any number of screens)
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+//
+//Here begins the second screen - Trip computer
+//
+
+
+//set screen background color
+background-color;FFFFFF
+
+//Draw Settings message
+text;5;96%;20%;L;Arial;Regular;10pt;008000;;Press F9 for settings
+
+//Draw Instant consumption
+text;60%;24%;38%;R;Arial;Bold;18pt;000080;;Instant consumption (l/100km)
+value;60%;29%;38%;R;Arial;Bold;42pt;CC0000;;INSTANT_CONSUMPTION_TRIPAB;
+
+//Draw Range
+text;2%;32%;32%;L;Arial;Bold;26pt;FFFFFF;000080;Range to empty
+value;35%;32%;20%;R;Arial;Bold;26pt;FFFFFF;000080;RANGE_TRIPAB;km
+
+//Draw line below Total Odometer
+box;4;29%;58%;1%;FFFFFF
+
+//Draw Total Odometer
+value;2%;5%;56%;R;Arial;Bold;100pt;FFFFFF;000080;TOTAL_ODOMETER_TRIPAB;
+
+//Draw box under Total Odometer
+box;4;4;58%;40%;000080
+
+//Draw Trip time (B)
+text;51%;55%;28%;L;Arial;Bold;18pt;000080;;Trip time B:
+value;79%;54%;19%;R;Arial;Bold;24pt;CC0000;;TRAVEL_TIME_TRIPB;
+
+//Draw Trip distance (B)
+text;51%;65%;28%;L;Arial;Bold;18pt;000080;;Trip distance B:
+value;79%;64%;19%;R;Arial;Bold;24pt;CC0000;;PARTIAL_ODOMETER_TRIPB;km
+
+//Draw Average speed (B)
+text;51%;75%;28%;L;Arial;Bold;18pt;000080;;Average speed B:
+value;79%;74%;19%;R;Arial;Bold;24pt;CC0000;;AVERAGE_SPEED_TRIPB;km/h
+
+//Draw Average consumption (B)
+text;51%;85%;28%;L;Arial;Bold;18pt;000080;;Average consumption B:
+value;79%;84%;19%;R;Arial;Bold;24pt;CC0000;;AVERAGE_CONSUMPTION_TRIPB;l/100km
+
+
+//Draw Trip time (A)
+text;2%;55%;28%;L;Arial;Bold;18pt;000080;;Trip time A:
+value;30%;54%;19%;R;Arial;Bold;24pt;CC0000;;TRAVEL_TIME_TRIPA;
+
+//Draw Trip distance (A)
+text;2%;65%;28%;L;Arial;Bold;18pt;000080;;Trip distance A:
+value;30%;64%;19%;R;Arial;Bold;24pt;CC0000;;PARTIAL_ODOMETER_TRIPA;km
+
+//Draw Average speed (A)
+text;2%;75%;28%;L;Arial;Bold;18pt;000080;;Average speed A:
+value;30%;74%;19%;R;Arial;Bold;24pt;CC0000;;AVERAGE_SPEED_TRIPA;km/h
+
+//Draw Average consumption (A)
+text;2%;85%;28%;L;Arial;Bold;18pt;000080;;Average consumption A:
+value;30%;84%;19%;R;Arial;Bold;24pt;CC0000;;AVERAGE_CONSUMPTION_TRIPA;l/100km
+
+//Draw vertical line between Trip A and Trip B
+box;50%;50%;4;45%;000080
+
